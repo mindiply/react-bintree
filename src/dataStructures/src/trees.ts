@@ -319,3 +319,14 @@ function identifyRightmostElement<T>(
     return node;
   }
 }
+
+export function treeHeight(tree: BinaryTree<any>): number {
+  return nodeHeight(tree.root);
+}
+
+function nodeHeight(node: BinaryTreeNode<any> | null): number {
+  if (node === null) {
+    return -1
+  }
+  return Math.max(nodeHeight(node.left), nodeHeight(node.right)) + 1;
+}
